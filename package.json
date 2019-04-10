@@ -1,0 +1,31 @@
+{
+  "name": "angular-npm-seed",
+  "version": "0.1.0",
+  "description": "An Angular npm package and demo site generator",
+  "main": "index.js",
+  "scripts": {
+    "generate": "bash ./scripts/generate.sh",
+    "g": "npm run generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamHive/angular-npm-seed.git"
+  },
+  "keywords": [
+    "generator",
+    "Angular",
+    "npm",
+    "package",
+    "lib",
+    "library"
+  ],
+  "author": "Scott M Gerstl <scott@meetmaestro.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TeamHive/angular-npm-seed/issues"
+  },
+  "homepage": "https://github.com/TeamHive/angular-npm-seed#readme",
+  "dependencies": {
+    "edit-json-file": "^1.2.1"
+  }
+}

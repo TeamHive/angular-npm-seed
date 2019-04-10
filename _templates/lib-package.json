@@ -1,0 +1,21 @@
+{
+    "$schema": "./../../node_modules/ng-packagr/package.schema.json",
+    "name": "@{{NPM_SCOPE}}/{{PACKAGE_NAME}}",
+    "version": "0.1.0",
+    "ngPackage": {
+        "lib": {
+            "entryFile": "./index.ts"
+        },
+        "dest": "./../../dist/@{{NPM_SCOPE}}/{{PACKAGE_NAME}}"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/{{GITHUB_SCOPE}}/{{PACKAGE_NAME}}"
+    },
+    "keywords": [],
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/common": "^5.1.3",
+        "@angular/core": "^5.1.3"
+    }
+}

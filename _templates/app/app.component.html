@@ -1,0 +1,24 @@
+<header>
+    <a routerLink="/home" class="logo-container">
+      <img src="assets/images/hive-logo-white.png" class="logo hive-logo"/>
+      <div class="title" [innerText]="title"></div>
+    </a>
+    <nav>
+      <a *ngFor="let item of navItems" [routerLink]="item.location" routerLinkActive="active">
+        <span [innerText]="item.title"></span>
+      </a>
+      <a [href]="npmLocation" target="_blank" class="external-nav npm-logo margin-for-examples logo">
+        <img src="assets/images/npm.svg"/>
+      </a>
+      <a [href]="githubLocation" target="_blank" class="external-nav github-logo logo">
+        <img src="assets/images/github.svg"/>
+      </a>
+    </nav>
+  </header>
+  <router-outlet></router-outlet>
+  <footer>
+      <span class="tagline">
+        Made with <span class="heart">&hearts;</span> by <a target="_blank" href="https://teamhive.com/">Team Hive</a>
+      </span>
+  </footer>
+  
