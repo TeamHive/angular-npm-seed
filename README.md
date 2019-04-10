@@ -1,8 +1,6 @@
 # angular-npm-seed
 
-## Get the Seed
-
-Clone the package to some location. (Recommended: a tooling directory or the root of the development folder)
+## Installation
 
 ```bash
 sudo npm i -g @teamhive/angular-npm-seed
