@@ -3,25 +3,22 @@
 # Associative Array Delimiter since bash 3 doesn't have associative arrays => HACK
 __="|-|"
 
-exec() {
-    
+exec() {    
     pushd $2
 
     # Create the nx workspace
-    npx create-nx-workspace $1 --npm-scope=$3 --style=scss
+    npx create-nx-workspace $1 --npm-scope=$3 --style=scss --defaults=true --force=true --interactive=false
     echo $1 workspace created
     
     # Move to created workspace directory
     pushd $1 
     
-    # create angular app    
-    echo Choose options for the demo-web app
-    ng g app demo-web --minimal=true --routing=true --prefix=app
+    # create demo angular app    
+    ng g app demo-web --minimal=true --routing=true --prefix=app --defaults=true --force=true --interactive=false
     echo demo-web app created
     
     # create lib
-    echo Choose options for the $1 lib
-    ng g lib $1 --parentModule=apps/demo-web/src/app/app.module.ts --prefix=teamhive
+    ng g lib $1 --parentModule=apps/demo-web/src/app/app.module.ts --prefix=teamhive --defaults=true --force=true --interactive=false
     echo npm lib $1 successully created
 
     # Move back to tooling root
@@ -30,8 +27,6 @@ exec() {
 
     copyFolders $2/$1/apps/demo-web/src
     processTemplates
-
-    # cp -rf _templates/package-core $2/$1/libs
 
     rm -f $2/$1/apps/demo-web/src/app/app.component.spec.ts
     rm -rf $2/$1/apps/demo-web-e2e
@@ -63,12 +58,12 @@ getModuleName() {
 copyFolders() {
     for path in "${CopyRootFolders[@]}"; 
     do 
-        cp -rf _templates/$path $1
+        cp -rf $asset_root/_templates/$path $PWD/$1
     done
 
     for path in "${CopyAppFolders[@]}"; 
     do 
-        cp -rf _templates/$path $1/app
+        cp -rf $asset_root/_templates/$path $PWD/$1/app
     done
 }
 
@@ -84,25 +79,26 @@ processTemplates() {
 
 # $1=template file name, $2=writelocation   
 replaceFileTokens() {
-    file_contents=$(<_templates/$1)
-    echo "${file_contents//$KEY/$VALUE}" > $2
+    file_contents=$(<$asset_root/_templates/$1)
+    echo "${file_contents//$KEY/$VALUE}" > $PWD/$2
 
     for replacement in "${FileTokens[@]}"; 
     do 
         KEY="${replacement%%$__*}"
         VALUE="${replacement##*$__}"
 
-        file_contents=$(<$2)
-        echo "${file_contents//$KEY/$VALUE}" > $2
+        file_contents=$(<$PWD/$2)
+        echo "${file_contents//$KEY/$VALUE}" > $PWD/$2
     done
 }
 
 transformJson() {
-    node scripts/tsconfig-app.transform.js $1/apps/demo-web/tsconfig.app.json
-    node scripts/angular-json.transform.js $1/angular.json
+    node $asset_root/scripts/tsconfig-app.transform.js $PWD/$1/apps/demo-web/tsconfig.app.json
+    node $asset_root/scripts/angular-json.transform.js $PWD/$1/angular.json
 }
 
 scope=teamhive
+asset_root=$(npm root -g)/@teamhive/angular-npm-seed/bin
 
 # https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash/40999140
 FileTokens=(
@@ -140,5 +136,5 @@ CopyAppFolders=(
     "models"
 )
 
-# Inputs $1= package-name $2= desired directory (defaults to current)
-exec $1 $2 $scope
+# Inputs $1= package-name
+exec $1 . $scope

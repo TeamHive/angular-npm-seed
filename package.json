@@ -1,11 +1,11 @@
 {
-  "name": "angular-npm-seed",
+  "name": "@teamhive/angular-npm-seed",
   "version": "0.1.0",
   "description": "An Angular npm package and demo site generator",
-  "main": "index.js",
-  "scripts": {
-    "generate": "bash ./scripts/generate.sh",
-    "g": "npm run generate"
+  "preferGlobal": true,
+  "main": "./lib/index.js",
+  "bin": {
+    "generate-hive-package": "./bin/scripts/generate.sh"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/TeamHive/angular-npm-seed#readme",
   "dependencies": {
-    "edit-json-file": "^1.2.1"
+    "edit-json-file": "^1.2.1",
+    "@angular/cli": "^7.1.4"
   }
 }

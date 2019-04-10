@@ -5,38 +5,35 @@
 Clone the package to some location. (Recommended: a tooling directory or the root of the development folder)
 
 ```bash
-git clone https://github.com/TeamHive/angular-npm-seed.git
+sudo npm i -g @teamhive/angular-npm-seed
 ```
 
 ## Start a package
 
+navigate to the root directory to create the root folder of the project in. For instance, if you wanted to create a package named `my-pack` in the folder called `Documents/Development`. You would cd into `Documents/Development` as the `my-pack` will be created by the generate command.
+
+
 ```bash
-npm run g [package-name] [root-directory]
+generate-hive-package [package-name]
 ```
 
 The generate command (g for short) accepts 2 inputs.
-| input | description | default |
-|---|---|---|
+| Parameter | Description | Default |
+| --- | --- | --- |
 | package-name | The name of the package. It will be scoped at `@teamhive/package-name`. Do not lead the name with `@teamhive` | none |
-| root-directory | The root directory to create the root folder of the project in. Example: If you wanted to create a package named `my-pack` in the folder called `Documents/Development`. You would supply only `Documents/Development` as the `my-pack` will be created by the generate command. | current directory (`./`) |
 
 
-#### Examples 
-
-* Assuming the seed is cloned to a `tooling` folder:
+#### Example
 
 ```bash
-npm run g my-pack ~/Documents/Development/packages`
+generate-hive-package my-pack
 ```
 
-* Assuming the seed is in the root of the `development` folder
+## Run the demo site
+
+When the generated package is finished, cd into the new folder and run the start command
 
 ```bash
-npm run g my-pack ../packages`
-```
-
-* Assuming the seed is in the root of the `packages` folder
-
-```bash
-npm run g my-pack ../`
+cd my-pack
+npm run start
 ```

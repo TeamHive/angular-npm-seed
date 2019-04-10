@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const editJsonFile = require("edit-json-file");
 
 const args = process.argv.slice(2);
