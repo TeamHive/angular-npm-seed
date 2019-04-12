@@ -1,6 +1,6 @@
 {
   "name": "@teamhive/angular-npm-seed",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An Angular npm package and demo site generator",
   "preferGlobal": true,
   "main": "./lib/index.js",
