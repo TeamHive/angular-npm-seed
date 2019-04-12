@@ -26,6 +26,7 @@ exec() {
     popd
 
     copyFolders $2/$1/apps/demo-web/src
+    cp -rf $asset_root/_templates/tools/scripts $2/$1/tools
     processTemplates
 
     rm -f $2/$1/apps/demo-web/src/app/app.component.spec.ts
@@ -122,7 +123,7 @@ TemplateFiles=(
     "app/app.component.html$__$2/$1/apps/demo-web/src/app/app.component.html"
     "app/app.component.scss$__$2/$1/apps/demo-web/src/app/app.component.scss"
     "app/app.routes.ts$__$2/$1/apps/demo-web/src/app/app.routes.ts"
-    "app/app.module.ts$__$2/$1/apps/demo-web/src/app/app.module.ts"    
+    "app/app.module.ts$__$2/$1/apps/demo-web/src/app/app.module.ts"
 )
 
 CopyRootFolders=(

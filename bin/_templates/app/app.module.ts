@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NxModule } from '@nrwl/nx';
 import { {{MODULE_NAME}} } from '@{{NPM_SCOPE}}/{{PACKAGE_NAME}}';
-import { TeamHivePackageCoreModule } from '@teamhive/package-core';
+import { TeamHivePackageCoreModule } from '@teamhive/angular-package-core';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { AppPages, AppRoutes } from './app.routes';
