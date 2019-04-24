@@ -7,18 +7,18 @@ exec() {
     pushd $2
 
     # Create the nx workspace
-    npx create-nx-workspace $1 --npm-scope=$3 --style=scss --defaults=true --force=true --interactive=false
+    npx create-nx-workspace $1 --npm-scope=$3 --style=scss --force=true
     echo $1 workspace created
     
     # Move to created workspace directory
     pushd $1 
     
     # create demo angular app    
-    ng g app demo-web --minimal=true --routing=true --prefix=app --defaults=true --force=true --interactive=false
+    ng g app demo-web --minimal=true --routing=true --prefix=app --force=true
     echo demo-web app created
     
     # create lib
-    ng g lib $1 --parentModule=apps/demo-web/src/app/app.module.ts --prefix=teamhive --defaults=true --force=true --interactive=false
+    ng g lib $1 --parentModule=apps/demo-web/src/app/app.module.ts --prefix=teamhive --force=true
     echo npm lib $1 successully created
 
     # Move back to tooling root
